@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tutorial extends Model
+
+class Comment extends Model
 {
     protected $fillable = [
-        'title', 'slug', 'body',
+        'body', 'tutorial_id', 'user_id',
     ];
- 
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function comments(){
-        return $this->hasMany(Comment::class);
+    public function tutorial(){
+        return $this->belongsTo(Tutorial::class);
     }
 }
